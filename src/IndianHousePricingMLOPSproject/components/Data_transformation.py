@@ -16,9 +16,8 @@ from sklearn.preprocessing import StandardScaler, FunctionTransformer
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
-# ------------------------------------------------------------------
 # Carpet-area unit conversion map (all units → Sq-ft)
-# ------------------------------------------------------------------
+
 CARPET_CONVERSION = {
     'Sq-ft': 1,
     'Sq-yrd': 9,
@@ -35,10 +34,10 @@ CARPET_CONVERSION = {
 FLOOR_MAP = {"Ground": 0, "Upper Basement": -1, "Lower Basement": -2}
 
 
-# ------------------------------------------------------------------
+
 # Custom transformer: all domain-specific cleaning done in one step
 # so the sklearn Pipeline stays clean.
-# ------------------------------------------------------------------
+
 class HouseDataPreprocessor(BaseEstimator, TransformerMixin):
     """
     Performs:
@@ -58,7 +57,7 @@ class HouseDataPreprocessor(BaseEstimator, TransformerMixin):
         self.target_q1_ = None
         self.target_q99_ = None
 
-    # ---- helpers ------------------------------------------------
+    #  helpers 
 
     @staticmethod
     def _days_ago(date_str):
@@ -106,7 +105,7 @@ class HouseDataPreprocessor(BaseEstimator, TransformerMixin):
 
         return df
 
-    # ---- fit / transform ----------------------------------------
+    #  fit / transform 
 
     def fit(self, df: pd.DataFrame, y=None):
         df = self._basic_clean(df)
@@ -165,9 +164,9 @@ class HouseDataPreprocessor(BaseEstimator, TransformerMixin):
         return df
 
 
-# ------------------------------------------------------------------
+
 # DataTransformationConfig / DataTransformation
-# ------------------------------------------------------------------
+
 
 @dataclass
 class DataTransformationConfig:
