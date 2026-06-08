@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  training:
+    cmd: python src/IndianHousePricingMLOPSproject/pipelines/Training_pipeline.py
+    deps:
+    - path: Notebook/data/Scraped_Data.csv
+      hash: md5
+      md5: 1c3a53a680613d7f7942728908b28c08
+      size: 11531585
+    - path: src/IndianHousePricingMLOPSproject/pipelines/Training_pipeline.py
+      hash: md5
+      md5: 6bbb0bd00674c46211da7b3ab9531d77
+      size: 1327
+    - path: src/IndianHousePricingMLOPSproject/components/Data_ingestion.py
+      hash: md5
+      md5: cab862627d2fe7c3577e308157fe765f
+      size: 2667
+    - path: src/IndianHousePricingMLOPSproject/components/Data_transformation.py
+      hash: md5
+      md5: b5919bd647bc9de2f3492939c4dad39a
+      size: 10146
+    - path: src/IndianHousePricingMLOPSproject/components/Model_trainer.py
+      hash: md5
+      md5: 11860eac15ae4f566cd54a68df5e965f
+      size: 2671
+    - path: src/IndianHousePricingMLOPSproject/components/Model_evaluation.py
+      hash: md5
+      md5: 20a6c0d389b638660b429be6a9e880db
+      size: 2571
+    outs:
+    - path: Artifacts/raw_data.csv
+      hash: md5
+      md5: bd3611f81ee4b67196b325f5e9c11db7
+      size: 11584655
+    - path: Artifacts/test_data.csv
+      hash: md5
+      md5: 75b6e91b6a89facfb7647ecb390c73f8
+      size: 2319880
+    - path: Artifacts/train_data.csv
+      hash: md5
+      md5: 2f8301dfa21a08bc084a183aafa4e50c
+      size: 9266278
+    - path: Artifacts/preprocessor.pkl
+      hash: md5
+      md5: 623b7aac9c2951cea1cb12c043acc5f3
+      size: 90179
+    - path: Artifacts/model.pkl
+      hash: md5
+      md5: 166bf688295b62c59d3f705f9907e328
+      size: 154250241

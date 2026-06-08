@@ -1,0 +1,17 @@
+stages:
+  training:
+    cmd: python src/IndianHousePricingMLOPSproject/pipelines/Training_pipeline.py
+    deps:
+      - Notebook/data/Scraped_Data.csv
+      - src/IndianHousePricingMLOPSproject/pipelines/Training_pipeline.py
+      - src/IndianHousePricingMLOPSproject/components/Data_ingestion.py
+      - src/IndianHousePricingMLOPSproject/components/Data_transformation.py
+      - src/IndianHousePricingMLOPSproject/components/Model_trainer.py
+      - src/IndianHousePricingMLOPSproject/components/Model_evaluation.py
+
+    outs:
+      - Artifacts/raw_data.csv
+      - Artifacts/test_data.csv
+      - Artifacts/train_data.csv
+      - Artifacts/preprocessor.pkl
+      - Artifacts/model.pkl
